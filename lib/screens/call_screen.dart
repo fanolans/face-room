@@ -30,6 +30,41 @@ class CallPage extends StatelessWidget {
         )
         ..avatarBuilder = ((context, size, user, extraInfo) =>
             Avatar(size: size, username: user != null ? user.name : ''))
+        ..bottomMenuBarConfig = ZegoBottomMenuBarConfig(
+          buttons: const [
+            ZegoMenuBarButtonName.toggleCameraButton,
+            ZegoMenuBarButtonName.toggleMicrophoneButton,
+            ZegoMenuBarButtonName.hangUpButton,
+            ZegoMenuBarButtonName.switchAudioOutputButton,
+            ZegoMenuBarButtonName.switchCameraButton,
+            ZegoMenuBarButtonName.showMemberListButton,
+          ],
+        )
+        ..onHangUpConfirmation = (context) async {
+          return await showDialog(
+            context: context,
+            builder: (context) {
+              return AlertDialog(
+                title: const Text('Hang Up Confirmation'),
+                content: const Text('Are you sure?'),
+                actions: [
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.of(context).pop(true);
+                    },
+                    child: const Text('Yes'),
+                  ),
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.of(context).pop(false);
+                    },
+                    child: const Text('No'),
+                  ),
+                ],
+              );
+            },
+          );
+        }
         ..onOnlySelfInRoom = (context) => Navigator.of(context).pop(),
     );
   }
