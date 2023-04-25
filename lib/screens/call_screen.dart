@@ -24,6 +24,10 @@ class CallPage extends StatelessWidget {
       userName: userName,
       callID: callID,
       config: ZegoUIKitPrebuiltCallConfig.oneOnOneVideoCall()
+        ..layout = ZegoLayout.pictureInPicture(
+          isSmallViewDraggable: true,
+          switchLargeOrSmallViewByClick: true,
+        )
         ..avatarBuilder = ((context, size, user, extraInfo) =>
             Avatar(size: size, username: user != null ? user.name : ''))
         ..onOnlySelfInRoom = (context) => Navigator.of(context).pop(),
