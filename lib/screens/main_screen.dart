@@ -1,3 +1,4 @@
+import 'package:face_room/screens/call_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../widgets/appbar_widget.dart';
@@ -19,7 +20,7 @@ class MainPage extends StatelessWidget {
           children: [
             Container(
               color: Colors.grey.shade100,
-              padding: const EdgeInsets.only(top: 70),
+              padding: const EdgeInsets.only(top: 70, left: 16, right: 16),
               child: ListView(
                 children: [
                   Column(
@@ -43,15 +44,26 @@ class MainPage extends StatelessWidget {
                         child: SizedBox(
                           width: double.infinity,
                           child: ElevatedButton(
-                              onPressed: () {},
-                              style: ButtonStyle(
-                                backgroundColor: MaterialStateProperty.all(
-                                    Colors.blue.shade700),
-                              ),
-                              child: const Text(
-                                'Join Video Call',
-                                style: TextStyle(color: Colors.white),
-                              )),
+                            onPressed: () {
+                              Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (context) => CallPage(
+                                    callID: callIdController.text,
+                                    userID: userIdController.text,
+                                    userName: userNameController.text,
+                                  ),
+                                ),
+                              );
+                            },
+                            style: ButtonStyle(
+                              backgroundColor: MaterialStateProperty.all(
+                                  Colors.blue.shade700),
+                            ),
+                            child: const Text(
+                              'Join Video Call',
+                              style: TextStyle(color: Colors.white),
+                            ),
+                          ),
                         ),
                       ),
                     ],
