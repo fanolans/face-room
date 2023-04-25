@@ -16,17 +16,20 @@ class InputWidget extends StatelessWidget {
     return Container(
       width: double.infinity,
       decoration: BoxDecoration(
-          color: Colors.white,
-          border: Border.symmetric(
-              horizontal: BorderSide(color: Colors.grey.shade200, width: 1.5))),
+        color: Colors.white,
+        border: Border.symmetric(
+          horizontal: BorderSide(color: Colors.grey.shade200, width: 1.5),
+        ),
+      ),
       margin: margin,
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: TextField(
         controller: callIdController,
         decoration: InputDecoration(
-            border: InputBorder.none,
-            hintText: hintText,
-            hintStyle: TextStyle(color: Colors.grey.shade500)),
+          border: InputBorder.none,
+          hintText: hintText,
+          hintStyle: TextStyle(color: Colors.grey.shade500),
+        ),
       ),
     );
   }
