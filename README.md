@@ -1,6 +1,6 @@
 
 # Face Room
-Case study of Flutter app for video calls using Zegocloud UI Kit.
+Flutter app for video calls using Zegocloud UI Kit.
 
 ## Screenshots
 <img src="https://github.com/fanolans/face-room/assets/85090127/18e744b1-4608-4a39-a19c-95fc0f81b2a9" width="200">
